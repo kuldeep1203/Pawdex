@@ -314,5 +314,125 @@ npm test                # Run tests (if set up)
 ```
 
 ---
+---
+
+## 19. Change Timeline (MANDATORY)
+
+Every AI coding agent working in this repository must maintain a project change log in a file named:
+
+```
+TIMELINE.md
+```
+
+This file is the project's running history and should always reflect the latest state of development.
+
+### When to update it
+
+After completing **any task that changes the project**, the agent MUST update `TIMELINE.md` before finishing its response.
+
+This includes:
+
+- Creating files
+- Deleting files
+- Renaming files
+- Refactoring
+- Adding features
+- Bug fixes
+- Dependency changes
+- Configuration changes
+- Documentation updates
+
+Pure discussion that produces no code does **not** require an update.
+
+### Required format
+
+Every entry should include:
+
+- Date and time
+- Short title
+- Files changed
+- Summary of what changed
+- Why the change was made
+
+Example:
+
+```md
+# Project Timeline
+
+## 2026-07-12 14:35 UTC
+
+### Added Login Screen
+
+**Files**
+- app/login.tsx
+- src/components/ui/PrimaryButton.tsx
+
+**Summary**
+Implemented the first login screen with email and password fields.
+
+**Reason**
+Provides the authentication entry point requested by the user.
+```
+
+---
+
+### Current Project State
+
+At the very top of `TIMELINE.md`, maintain a short summary of the latest state of the project.
+
+Example:
+
+```md
+# Current State
+
+Latest Change:
+Added Login Screen
+
+Current Focus:
+Building authentication flow.
+
+Last Modified:
+2026-07-12 14:35 UTC
+
+Next Expected Step:
+Connect login screen to backend API.
+```
+
+This section must always describe the project's current state after the latest completed task.
+
+---
+
+### Agent Requirements
+
+Before making changes, the agent should:
+
+1. Read `TIMELINE.md`.
+2. Understand the latest project state.
+3. Continue from the most recent recorded work instead of rediscovering context.
+
+After making changes, the agent must:
+
+1. Update the "Current State" section.
+2. Append a new timeline entry.
+3. Ensure the newest entry is at the top (reverse chronological order).
+
+---
+
+### Important Rule
+
+`TIMELINE.md` is considered part of the project documentation.
+
+Agents must never overwrite previous history.
+
+Only append new entries and update the "Current State" summary.
+
+The timeline should always allow someone to answer:
+
+- What was the last change?
+- Why was it made?
+- Which files changed?
+- What should happen next?
+
+without reading the entire codebase.
 
 *Golden rule again: I'm a beginner. Explain, keep it simple, and go one step at a time.*
