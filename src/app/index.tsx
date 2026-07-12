@@ -1,98 +1,165 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// WELCOME — the first screen you see when the app opens.
+// A calm landing page: logo mark, tagline, how many cats you've
+// collected, and a button into the main app.
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { Ionicons } from '@expo/vector-icons';
+import { router, useFocusEffect } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Animated, {
+  Easing,
+  FadeInDown,
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withSequence,
+  withTiming,
+} from 'react-native-reanimated';
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
+import PressableScale from '@/components/PressableScale';
+import { getCats } from '@/lib/storage';
+import { useTheme } from '@/theme/ThemeContext';
+
+export default function WelcomeScreen() {
+  const { theme } = useTheme();
+  const c = theme.colors;
+  const [count, setCount] = useState<number | null>(null);
+
+  useFocusEffect(
+    useCallback(() => {
+      getCats().then((cats) => setCount(cats.length));
+    }, []),
   );
-}
 
-export default function HomeScreen() {
+  // A slow, gentle "breathing" pulse on the logo mark, repeating forever.
+  const pulse = useSharedValue(1);
+  useEffect(() => {
+    pulse.set(
+      withRepeat(
+        withSequence(
+          withTiming(1.06, { duration: 1600, easing: Easing.inOut(Easing.quad) }),
+          withTiming(1, { duration: 1600, easing: Easing.inOut(Easing.quad) }),
+        ),
+        -1, // -1 = repeat forever
+      ),
+    );
+  }, [pulse]);
+  const pulseStyle = useAnimatedStyle(() => ({ transform: [{ scale: pulse.get() }] }));
+
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+    <View style={[styles.screen, { backgroundColor: c.background }]}>
+      <View style={styles.center}>
+        <Animated.View entering={FadeInDown.duration(500)} style={pulseStyle}>
+          <View style={[styles.logoMark, { backgroundColor: c.accent }]}>
+            <Ionicons name="paw" size={52} color={c.onAccent} />
+          </View>
+        </Animated.View>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+        <Animated.Text
+          entering={FadeInDown.delay(120).duration(500)}
+          style={[styles.title, { color: c.text }]}
+        >
+          PawDex
+        </Animated.Text>
+        <Animated.Text
+          entering={FadeInDown.delay(220).duration(500)}
+          style={[styles.tagline, { color: c.textMuted }]}
+        >
+          Every cat you meet, remembered.
+        </Animated.Text>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+        {count !== null && (
+          <Animated.View
+            entering={FadeInDown.delay(320).duration(500)}
+            style={[styles.countChip, { backgroundColor: c.accentSoft }]}
+          >
+            <Ionicons name="paw-outline" size={15} color={c.text} />
+            <Text style={[styles.countText, { color: c.text }]}>
+              {count === 0
+                ? 'No cats collected yet'
+                : `${count} ${count === 1 ? 'cat' : 'cats'} collected`}
+            </Text>
+          </Animated.View>
+        )}
+      </View>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+      <Animated.View entering={FadeInDown.delay(420).duration(500)} style={styles.footer}>
+        <PressableScale
+          style={[styles.button, { backgroundColor: c.accent }]}
+          onPress={() => router.replace('/dex')}
+        >
+          <Text style={[styles.buttonText, { color: c.onAccent }]}>Open PawDex</Text>
+          <Ionicons name="arrow-forward" size={19} color={c.onAccent} />
+        </PressableScale>
+      </Animated.View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
+    padding: 28,
   },
-  safeArea: {
+  center: {
     flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+  },
+  logoMark: {
+    width: 108,
+    height: 108,
+    borderRadius: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 5,
   },
   title: {
-    textAlign: 'center',
+    fontSize: 42,
+    fontWeight: '800',
+    letterSpacing: 0.5,
+    marginTop: 26,
   },
-  code: {
-    textTransform: 'uppercase',
+  tagline: {
+    fontSize: 16,
+    marginTop: 8,
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+  countChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+    paddingHorizontal: 16,
+    paddingVertical: 9,
+    borderRadius: 999,
+    marginTop: 22,
+  },
+  countText: {
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  footer: {
+    paddingBottom: 18,
+  },
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    borderRadius: 18,
+    paddingVertical: 17,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 3,
+  },
+  buttonText: {
+    fontSize: 17,
+    fontWeight: '800',
+    letterSpacing: 0.4,
   },
 });
