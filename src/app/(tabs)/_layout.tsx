@@ -3,6 +3,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 
+import { DeviceLens } from '@/components/DeviceFrame';
+import HeaderTitle from '@/components/HeaderTitle';
 import { useTheme } from '@/theme/ThemeContext';
 
 export default function TabLayout() {
@@ -12,14 +14,16 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: c.accent,
-        tabBarInactiveTintColor: c.textMuted,
+        tabBarActiveTintColor: c.accentOnShell,
+        tabBarInactiveTintColor: c.onShellMuted,
         tabBarStyle: { backgroundColor: c.tabBar, borderTopColor: c.border },
         tabBarLabelStyle: { fontWeight: '700' },
         headerStyle: { backgroundColor: c.background },
         headerShadowVisible: false,
-        headerTintColor: c.text,
-        headerTitleStyle: { fontWeight: '800', fontSize: 22 },
+        headerTintColor: c.onShell,
+        headerTitle: ({ children }) => <HeaderTitle text={children} />,
+        // The dexgadget theme shows its camera lens + blinking light here.
+        headerLeft: theme.decor.deviceChrome ? () => <DeviceLens /> : undefined,
         headerTitleAlign: 'left',
         sceneStyle: { backgroundColor: c.background },
       }}
@@ -35,11 +39,24 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="map"
+        options={{
+          title: 'Map',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'map' : 'map-outline'} color={color} size={24} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="settings"
         options={{
-          title: 'Settings',
+          title: 'Themes',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'settings' : 'settings-outline'} color={color} size={24} />
+            <Ionicons
+              name={focused ? 'color-palette' : 'color-palette-outline'}
+              color={color}
+              size={24}
+            />
           ),
         }}
       />

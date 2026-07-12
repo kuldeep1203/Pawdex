@@ -13,6 +13,7 @@ export type Cat = {
   photoUri: string; // file:// URI of the saved photo on the device
   food: string; // favorite food
   antics: string; // what it does (personality, tricks, chaos)
+  traits: string[]; // personality chips like "sleepy", "chaotic"
   about: string;
   location?: CatLocation;
   createdAt: number; // timestamp (ms) when the entry was created

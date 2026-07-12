@@ -8,14 +8,18 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeIn } from 'react-native-reanimated';
 
 import CatCard from '@/components/CatCard';
+import CatRow from '@/components/CatRow';
+import CatStamp from '@/components/CatStamp';
+import DeviceFrame from '@/components/DeviceFrame';
 import PressableScale from '@/components/PressableScale';
+import RuledPaper from '@/components/RuledPaper';
 import { getCats } from '@/lib/storage';
 import type { Cat } from '@/lib/types';
 import { useTheme } from '@/theme/ThemeContext';
 
 export default function DexScreen() {
   const { theme } = useTheme();
-  const c = theme.colors;
+  const { colors: c, shape, fonts } = theme;
   const [cats, setCats] = useState<Cat[]>([]);
 
   // useFocusEffect re-runs every time this screen becomes visible again —
@@ -26,35 +30,67 @@ export default function DexScreen() {
     }, []),
   );
 
+  // Which list style the theme wants: 2-column cards (grid), a
+  // field-guide index (ledger), or round passport stamps (stamps).
+  const layout = shape.dexLayout;
+
   return (
     <View style={[styles.screen, { backgroundColor: c.background }]}>
+      {theme.decor.ruledPaper && <RuledPaper />}
+      <DeviceFrame>
       {cats.length === 0 ? (
         <Animated.View entering={FadeIn.duration(400)} style={styles.empty}>
           <View style={[styles.emptyIcon, { backgroundColor: c.accentSoft }]}>
             <Ionicons name="paw-outline" size={40} color={c.text} />
           </View>
-          <Text style={[styles.emptyTitle, { color: c.text }]}>No cats spotted yet</Text>
-          <Text style={[styles.emptyHint, { color: c.textMuted }]}>
+          <Text style={[styles.emptyTitle, { color: c.onBackground, fontFamily: fonts.heading }]}>
+            No cats spotted yet
+          </Text>
+          <Text style={[styles.emptyHint, { color: c.onBackgroundMuted, fontFamily: fonts.body }]}>
             Tap the + button to log your first cat.
           </Text>
         </Animated.View>
       ) : (
         <FlatList
+          // Changing numColumns needs a fresh list — the key forces that.
+          key={layout}
           data={cats}
-          renderItem={({ item, index }) => <CatCard cat={item} index={index} />}
+          renderItem={({ item, index }) =>
+            layout === 'ledger' ? (
+              <CatRow cat={item} index={index} />
+            ) : layout === 'stamps' ? (
+              <CatStamp cat={item} index={index} />
+            ) : (
+              <CatCard cat={item} index={index} />
+            )
+          }
           keyExtractor={(cat) => cat.id}
-          numColumns={2}
-          contentContainerStyle={styles.grid}
+          numColumns={layout === 'stamps' ? 3 : layout === 'ledger' ? 1 : 2}
+          contentContainerStyle={
+            layout === 'ledger'
+              ? styles.ledger
+              : layout === 'stamps'
+                ? // Stamps sit on a parchment "passport page" panel.
+                  [styles.stamps, { backgroundColor: c.card, borderRadius: shape.radiusCard }]
+                : styles.grid
+          }
         />
       )}
 
-      {/* Floating action button */}
-      <PressableScale
-        style={[styles.fab, { backgroundColor: c.accent }]}
-        onPress={() => router.push('/cat/new')}
-      >
-        <Ionicons name="add" size={30} color={c.onAccent} />
-      </PressableScale>
+      {/* Floating action button — hidden for the dexgadget theme, whose
+          own device "+" button handles adding a cat instead. */}
+      {!theme.decor.deviceChrome && (
+        <PressableScale
+          style={[
+            styles.fab,
+            { backgroundColor: c.accent, borderColor: c.border, borderWidth: shape.borderWidth },
+          ]}
+          onPress={() => router.push('/cat/new')}
+        >
+          <Ionicons name="add" size={30} color={c.onAccent} />
+        </PressableScale>
+      )}
+      </DeviceFrame>
     </View>
   );
 }
@@ -66,6 +102,17 @@ const styles = StyleSheet.create({
   grid: {
     padding: 8,
     paddingBottom: 96, // keep the last row clear of the floating button
+  },
+  ledger: {
+    paddingHorizontal: 20,
+    paddingTop: 4,
+    paddingBottom: 96,
+  },
+  stamps: {
+    flexGrow: 1,
+    margin: 14,
+    padding: 14,
+    paddingBottom: 96,
   },
   empty: {
     flex: 1,

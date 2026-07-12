@@ -16,7 +16,10 @@ const STORAGE_KEY = 'pawdex.cats';
 
 export async function getCats(): Promise<Cat[]> {
   const json = await AsyncStorage.getItem(STORAGE_KEY);
-  return json ? (JSON.parse(json) as Cat[]) : [];
+  const cats = json ? (JSON.parse(json) as Cat[]) : [];
+  // Cats saved before the traits feature existed don't have a traits
+  // field — give them an empty list so the rest of the app can rely on it.
+  return cats.map((cat) => ({ ...cat, traits: cat.traits ?? [] }));
 }
 
 export async function getCat(id: string): Promise<Cat | undefined> {

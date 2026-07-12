@@ -16,13 +16,15 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
+import DeviceFrame from '@/components/DeviceFrame';
 import PressableScale from '@/components/PressableScale';
+import RuledPaper from '@/components/RuledPaper';
 import { getCats } from '@/lib/storage';
 import { useTheme } from '@/theme/ThemeContext';
 
 export default function WelcomeScreen() {
   const { theme } = useTheme();
-  const c = theme.colors;
+  const { colors: c, shape, fonts } = theme;
   const [count, setCount] = useState<number | null>(null);
 
   useFocusEffect(
@@ -48,22 +50,33 @@ export default function WelcomeScreen() {
 
   return (
     <View style={[styles.screen, { backgroundColor: c.background }]}>
+      {theme.decor.ruledPaper && <RuledPaper />}
+      <DeviceFrame>
       <View style={styles.center}>
         <Animated.View entering={FadeInDown.duration(500)} style={pulseStyle}>
-          <View style={[styles.logoMark, { backgroundColor: c.accent }]}>
+          <View
+            style={[
+              styles.logoMark,
+              { backgroundColor: c.accent, borderColor: c.border, borderWidth: shape.borderWidth },
+            ]}
+          >
             <Ionicons name="paw" size={52} color={c.onAccent} />
           </View>
         </Animated.View>
 
         <Animated.Text
           entering={FadeInDown.delay(120).duration(500)}
-          style={[styles.title, { color: c.text }]}
+          style={[
+            styles.title,
+            { color: c.onBackground, fontFamily: fonts.heading },
+            fonts.headingItalic && styles.italic,
+          ]}
         >
           PawDex
         </Animated.Text>
         <Animated.Text
           entering={FadeInDown.delay(220).duration(500)}
-          style={[styles.tagline, { color: c.textMuted }]}
+          style={[styles.tagline, { color: c.onBackgroundMuted, fontFamily: fonts.body }]}
         >
           Every cat you meet, remembered.
         </Animated.Text>
@@ -85,13 +98,22 @@ export default function WelcomeScreen() {
 
       <Animated.View entering={FadeInDown.delay(420).duration(500)} style={styles.footer}>
         <PressableScale
-          style={[styles.button, { backgroundColor: c.accent }]}
+          style={[
+            styles.button,
+            {
+              backgroundColor: c.accent,
+              borderRadius: shape.radiusControl,
+              borderColor: c.border,
+              borderWidth: shape.borderWidth,
+            },
+          ]}
           onPress={() => router.replace('/dex')}
         >
           <Text style={[styles.buttonText, { color: c.onAccent }]}>Open PawDex</Text>
           <Ionicons name="arrow-forward" size={19} color={c.onAccent} />
         </PressableScale>
       </Animated.View>
+      </DeviceFrame>
     </View>
   );
 }
@@ -99,12 +121,13 @@ export default function WelcomeScreen() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 28,
+    padding: 16,
   },
   center: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 12,
   },
   logoMark: {
     width: 108,
@@ -149,7 +172,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    borderRadius: 18,
     paddingVertical: 17,
     shadowColor: '#000',
     shadowOpacity: 0.1,
@@ -161,5 +183,8 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '800',
     letterSpacing: 0.4,
+  },
+  italic: {
+    fontStyle: 'italic',
   },
 });

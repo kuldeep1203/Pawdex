@@ -14,8 +14,8 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: 'Not Found' }} />
       <View style={[styles.container, { backgroundColor: c.background }]}>
-        <Ionicons name="help-circle-outline" size={56} color={c.textMuted} />
-        <Link href="/" style={[styles.button, { color: c.accent }]}>
+        <Ionicons name="help-circle-outline" size={56} color={c.onBackgroundMuted} />
+        <Link href="/" style={[styles.button, { color: c.accentOnBackground }]}>
           Back to PawDex
         </Link>
       </View>

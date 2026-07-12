@@ -5,6 +5,7 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
+import HeaderTitle from '@/components/HeaderTitle';
 import { ThemeProvider, useTheme } from '@/theme/ThemeContext';
 
 // This inner component exists because useTheme() only works *inside*
@@ -21,8 +22,10 @@ function RootStack() {
         screenOptions={{
           headerStyle: { backgroundColor: c.background },
           headerShadowVisible: false,
-          headerTintColor: c.text,
-          headerTitleStyle: { fontWeight: '800' },
+          headerTintColor: c.onShell,
+          // Custom title component: adds the tilt/italic the built-in
+          // headerTitleStyle can't express.
+          headerTitle: ({ children }) => <HeaderTitle text={children} />,
           contentStyle: { backgroundColor: c.background },
           animation: 'slide_from_right',
         }}

@@ -1,21 +1,27 @@
-// SETTINGS — pick one of the three themes. Each option shows little
+// SETTINGS — pick one of the five themes. Each option shows little
 // color swatches so you can preview it before tapping.
 
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
+import DeviceFrame from '@/components/DeviceFrame';
 import PressableScale from '@/components/PressableScale';
+import RuledPaper from '@/components/RuledPaper';
 import { useTheme } from '@/theme/ThemeContext';
 import { themes } from '@/theme/themes';
 
 export default function SettingsScreen() {
   const { theme, setThemeKey } = useTheme();
-  const c = theme.colors;
+  const { colors: c, shape } = theme;
+  const borderWidth = Math.max(shape.borderWidth, 1);
 
   return (
     <View style={[styles.screen, { backgroundColor: c.background }]}>
-      <Text style={[styles.heading, { color: c.textMuted }]}>THEME</Text>
+      {theme.decor.ruledPaper && <RuledPaper />}
+      <DeviceFrame>
+      <View style={styles.content}>
+      <Text style={[styles.heading, { color: c.onBackgroundMuted }]}>THEME</Text>
 
       {Object.values(themes).map((option, index) => {
         const selected = option.key === theme.key;
@@ -27,7 +33,8 @@ export default function SettingsScreen() {
                 {
                   backgroundColor: c.card,
                   borderColor: selected ? c.accent : c.border,
-                  borderWidth: selected ? 2 : 1,
+                  borderWidth: selected ? borderWidth + 1 : borderWidth,
+                  borderRadius: shape.radiusCard,
                 },
               ]}
               onPress={() => setThemeKey(option.key)}
@@ -55,13 +62,18 @@ export default function SettingsScreen() {
         );
       })}
 
-      <Text style={[styles.footer, { color: c.textMuted }]}>PawDex v1.0</Text>
+      <Text style={[styles.footer, { color: c.onBackgroundMuted }]}>PawDex v1.0</Text>
+      </View>
+      </DeviceFrame>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
+    flex: 1,
+  },
+  content: {
     flex: 1,
     padding: 20,
   },
@@ -75,7 +87,6 @@ const styles = StyleSheet.create({
   option: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 20,
     padding: 16,
     marginBottom: 12,
   },

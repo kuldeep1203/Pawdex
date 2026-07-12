@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f0eee9;font-family:'Patrick Hand',system-ui,sans-serif}a{color:#2a78d6}a:hover{color:#1a5cb0}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 15px/1.2 'Patrick Hand',sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 14px/1.3 'Patrick Hand',sans-serif;color:rgba(0,0,0,.6)}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:14px/1.5 'Patrick Hand',sans-serif;color:rgba(0,0,0,.5)}
+.ph{width:250px;height:490px;border:2px solid #26221e;border-radius:22px;background:#fff;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.row{display:flex;gap:16px;align-items:flex-start}
+.img{background:repeating-linear-gradient(45deg,#e8e4dc,#e8e4dc 6px,#f4f1ea 6px,#f4f1ea 12px);display:flex;align-items:center;justify-content:center;color:#8a837a;font:10px ui-monospace,Menlo,monospace}
+.note{font:14px/1.35 'Caveat',cursive;color:#6b645b;max-width:250px}
+</style></helmet>
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">PawDex — 5 directions (Dex · Cat detail · New Cat per option)</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Sticker Book — playful shapes, cats as peel-off stickers, trait chips like type stickers</div>
+<div class="row">
+<div class="ph" style="background:#fff7f9">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px 6px"><div style="font:600 20px 'Caveat',cursive;color:#26221e;transform:rotate(-2deg)">my cat stickers ♡</div><div style="width:26px;height:26px;border:2px dashed #f26d9e;border-radius:50%"></div></div>
+  <div style="font-size:12px;color:#b78;padding:0 14px 8px">14 collected · page 1</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 14px;flex:1">
+    <div style="background:#fff;border:2px solid #26221e;border-radius:16px 16px 16px 4px;padding:8px;transform:rotate(-2deg);box-shadow:3px 3px 0 #f9c9da"><div class="img" style="height:64px;border-radius:10px">photo</div><div style="font-weight:700;margin-top:4px">Mochi</div><div style="display:flex;gap:4px;margin-top:3px"><span style="font-size:10px;background:#ffe08a;border:1.5px solid #26221e;border-radius:99px;padding:1px 6px">sleepy</span><span style="font-size:10px;background:#bfe6c8;border:1.5px solid #26221e;border-radius:99px;padding:1px 6px">round</span></div></div>
+    <div style="background:#fff;border:2px solid #26221e;border-radius:16px 4px 16px 16px;padding:8px;transform:rotate(1.5deg);box-shadow:3px 3px 0 #cdd9f6"><div class="img" style="height:64px;border-radius:10px">photo</div><div style="font-weight:700;margin-top:4px">Beans</div><div style="display:flex;gap:4px;margin-top:3px"><span style="font-size:10px;background:#f9c9da;border:1.5px solid #26221e;border-radius:99px;padding:1px 6px">chaotic</span></div></div>
+    <div style="background:#fff;border:2px solid #26221e;border-radius:4px 16px 16px 16px;padding:8px;transform:rotate(1deg);box-shadow:3px 3px 0 #ffe08a"><div class="img" style="height:64px;border-radius:10px">photo</div><div style="font-weight:700;margin-top:4px">Sir Loin</div><div style="display:flex;gap:4px;margin-top:3px"><span style="font-size:10px;background:#cdd9f6;border:1.5px solid #26221e;border-radius:99px;padding:1px 6px">fancy</span></div></div>
+    <div style="border:2px dashed #d8a8bb;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d8a8bb;transform:rotate(-1deg)"><div style="font-size:26px">+</div><div style="font-size:11px">new sticker</div></div>
+  </div>
+  <div style="display:flex;justify-content:space-around;border-top:2px solid #26221e;padding:8px 0;background:#fff"><b style="color:#f26d9e">⬤ book</b><span style="color:#b7a">map</span><span style="color:#b7a">themes</span></div>
+</div>
+<div class="ph" style="background:#fff7f9">
+  <div style="padding:10px 14px;font-size:14px">← back</div>
+  <div style="margin:0 22px;background:#fff;border:2px solid #26221e;border-radius:18px;padding:10px;transform:rotate(-1.5deg);box-shadow:4px 4px 0 #f9c9da"><div class="img" style="height:120px;border-radius:12px">big cat photo</div></div>
+  <div style="text-align:center;margin-top:10px"><span style="font:600 26px 'Caveat',cursive">Mochi</span> <span style="font-size:12px;color:#b78">No. 003</span></div>
+  <div style="display:flex;gap:6px;justify-content:center;margin-top:4px"><span style="font-size:11px;background:#ffe08a;border:1.5px solid #26221e;border-radius:99px;padding:2px 8px">sleepy</span><span style="font-size:11px;background:#bfe6c8;border:1.5px solid #26221e;border-radius:99px;padding:2px 8px">round</span><span style="font-size:11px;background:#f9c9da;border:1.5px solid #26221e;border-radius:99px;padding:2px 8px">loud</span></div>
+  <div style="margin:12px 16px;background:#fff;border:2px solid #26221e;border-radius:14px;padding:10px;font-size:13px;line-height:1.35">"sleeps on the bakery windowsill, judges everyone, accepts one (1) chin scratch"</div>
+  <div style="display:flex;gap:10px;margin:0 16px"><div class="img" style="flex:1;height:54px;border-radius:10px;border:2px solid #26221e">map · behind bakery</div><div style="width:78px;border:2px solid #26221e;border-radius:10px;background:#ffe08a;display:flex;flex-direction:column;align-items:center;justify-content:center"><b style="font-size:18px">×6</b><span style="font-size:10px">spotted</span></div></div>
+</div>
+<div class="ph" style="background:#fff7f9">
+  <div style="padding:10px 14px;font:600 20px 'Caveat',cursive;transform:rotate(-1deg)">make a new sticker!</div>
+  <div style="margin:0 40px;border:2px dashed #f26d9e;border-radius:50% 50% 46% 54%/55% 48% 52% 45%;height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d8879f;background:#fff"><div style="font-size:22px">📷</div><div style="font-size:12px">tap to add photo</div></div>
+  <div style="margin:12px 16px 0;display:flex;flex-direction:column;gap:8px">
+    <div style="background:#fff;border:2px solid #26221e;border-radius:12px;padding:7px 10px;font-size:13px;color:#a99">name…</div>
+    <div><div style="font-size:12px;color:#b78;margin-bottom:4px">pick trait stickers</div><div style="display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:11px;background:#ffe08a;border:1.5px solid #26221e;border-radius:99px;padding:2px 8px">sleepy ✓</span><span style="font-size:11px;border:1.5px dashed #b7a;border-radius:99px;padding:2px 8px;color:#b7a">chaotic</span><span style="font-size:11px;border:1.5px dashed #b7a;border-radius:99px;padding:2px 8px;color:#b7a">fancy</span><span style="font-size:11px;border:1.5px dashed #b7a;border-radius:99px;padding:2px 8px;color:#b7a">round</span><span style="font-size:11px;border:1.5px dashed #b7a;border-radius:99px;padding:2px 8px;color:#b7a">+ own</span></div></div>
+    <div style="background:#fff;border:2px solid #26221e;border-radius:12px;padding:7px 10px;font-size:13px;color:#a99;height:44px">their story…</div>
+  </div>
+  <div style="margin:auto 16px 14px;background:#f26d9e;border:2px solid #26221e;border-radius:99px;text-align:center;padding:9px;color:#fff;font-weight:700;box-shadow:3px 3px 0 #26221e">peel &amp; stick it in! ✦</div>
+</div>
+</div>
+<div class="note">every card is a rotated “sticker” with hard offset shadows; traits = collectible sticker chips; themes recolor the sticker sheet</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Field Guide — vintage naturalist encyclopedia, specimen plates, serif + annotations</div>
+<div class="row">
+<div class="ph" style="background:#f7f3e8;font-family:Georgia,serif">
+  <div style="text-align:center;padding:14px 0 4px;border-bottom:1px solid #26221e;margin:0 14px"><div style="font-size:10px;letter-spacing:3px;color:#8a7f68">A FIELD GUIDE TO</div><div style="font-size:19px;font-style:italic">Neighbourhood Cats</div><div style="font-size:10px;color:#8a7f68">Vol. I — 14 specimens recorded</div></div>
+  <div style="flex:1;display:flex;flex-direction:column;gap:0;padding:6px 14px">
+    <div style="display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dotted #b9ad92"><div style="font-size:11px;color:#8a7f68;width:36px">No.<br><b style="font-size:14px;color:#26221e">001</b></div><div class="img" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #26221e">img</div><div><div style="font-size:15px"><i>Mochi</i></div><div style="font-size:10.5px;color:#8a7f68"><i>Felis rotundus</i> · the bakery windowsill</div></div><div style="margin-left:auto;font-size:10px;color:#8a7f68">vi.</div></div>
+    <div style="display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dotted #b9ad92"><div style="font-size:11px;color:#8a7f68;width:36px">No.<br><b style="font-size:14px;color:#26221e">002</b></div><div class="img" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #26221e">img</div><div><div style="font-size:15px"><i>Beans</i></div><div style="font-size:10.5px;color:#8a7f68"><i>Felis chaoticus</i> · the parking lot</div></div><div style="margin-left:auto;font-size:10px;color:#8a7f68">ii.</div></div>
+    <div style="display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dotted #b9ad92"><div style="font-size:11px;color:#8a7f68;width:36px">No.<br><b style="font-size:14px;color:#26221e">003</b></div><div class="img" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #26221e">img</div><div><div style="font-size:15px"><i>Sir Loin</i></div><div style="font-size:10.5px;color:#8a7f68"><i>Felis aristocratus</i> · garden wall</div></div><div style="margin-left:auto;font-size:10px;color:#8a7f68">ix.</div></div>
+    <div style="font:13px 'Caveat',cursive;color:#3f6b4f;transform:rotate(-1deg);margin-top:8px">← roman numerals = times sighted</div>
+  </div>
+  <div style="display:flex;justify-content:space-between;padding:8px 18px;border-top:1px solid #26221e;font-size:11px;color:#8a7f68"><span style="color:#26221e;font-weight:700">Index</span><span>Plates</span><span>Record new ⊕</span></div>
+</div>
+<div class="ph" style="background:#f7f3e8;font-family:Georgia,serif">
+  <div style="padding:10px 14px;font-size:12px;color:#8a7f68">← Index</div>
+  <div style="margin:0 18px;border:1.5px solid #26221e;padding:8px;background:#fffdf6"><div style="border:1px solid #26221e;padding:4px"><div class="img" style="height:110px">specimen photograph</div></div><div style="text-align:center;font-size:10px;letter-spacing:2px;color:#8a7f68;margin-top:5px">PLATE III</div></div>
+  <div style="text-align:center;margin-top:8px"><span style="font-size:20px;font-style:italic">Mochi</span><div style="font-size:11px;color:#8a7f68"><i>Felis rotundus</i> · No. 003</div></div>
+  <div style="display:flex;gap:6px;justify-content:center;margin-top:6px"><span style="font-size:10px;border:1px solid #3f6b4f;color:#3f6b4f;border-radius:2px;padding:1px 7px;letter-spacing:1px">SLEEPY</span><span style="font-size:10px;border:1px solid #3f6b4f;color:#3f6b4f;border-radius:2px;padding:1px 7px;letter-spacing:1px">ROUND</span></div>
+  <div style="margin:10px 18px;font-size:12px;line-height:1.5;color:#4a4438"><b style="font-size:10px;letter-spacing:2px;color:#8a7f68">FIELD NOTES.</b> Observed sleeping upon warm pastries. Temperament: judgemental yet tolerant of chin scratches.</div>
+  <div style="margin:0 18px;display:flex;gap:8px"><div class="img" style="flex:1;height:48px;border:1px solid #26221e">range map</div><div style="border:1px solid #26221e;padding:5px 8px;background:#fffdf6"><div style="font-size:9px;letter-spacing:1px;color:#8a7f68">SIGHTINGS</div><div style="font-size:12px">12 iv · 3 v<br>18 v · 2 vi</div></div></div>
+</div>
+<div class="ph" style="background:#f7f3e8;font-family:Georgia,serif">
+  <div style="text-align:center;padding:12px 0 2px;font-size:16px;font-style:italic">Record a New Specimen</div>
+  <div style="text-align:center;font-size:10px;letter-spacing:2px;color:#8a7f68">ENTRY No. 015</div>
+  <div style="margin:10px 30px;border:1.5px solid #26221e;background:#fffdf6;padding:6px"><div class="img" style="height:86px">affix photograph</div></div>
+  <div style="margin:0 18px;display:flex;flex-direction:column;gap:9px;font-size:12px">
+    <div><span style="font-size:9px;letter-spacing:2px;color:#8a7f68">COMMON NAME</span><div style="border-bottom:1px solid #26221e;padding:3px 0;color:#b0a68c;font-style:italic">Sir Whiskers…</div></div>
+    <div><span style="font-size:9px;letter-spacing:2px;color:#8a7f68">TEMPERAMENT</span><div style="border-bottom:1px solid #26221e;padding:3px 0;color:#b0a68c;font-style:italic">sleepy, fancy, chaotic…</div></div>
+    <div><span style="font-size:9px;letter-spacing:2px;color:#8a7f68">LOCALITY</span><div style="border-bottom:1px solid #26221e;padding:3px 0;display:flex;justify-content:space-between"><span style="color:#b0a68c;font-style:italic">behind the bakery…</span><span style="font-size:10px;color:#3f6b4f">◉ use location</span></div></div>
+    <div><span style="font-size:9px;letter-spacing:2px;color:#8a7f68">FIELD NOTES</span><div style="border-bottom:1px solid #26221e;height:30px"></div></div>
+  </div>
+  <div style="margin:auto 18px 14px;border:1.5px solid #26221e;text-align:center;padding:8px;background:#3f6b4f;color:#f7f3e8;font-size:13px;letter-spacing:2px">ENTER INTO THE RECORD</div>
+</div>
+</div>
+<div class="note">fake-latin species names, roman-numeral sighting tallies, numbered plates — themes swap the paper tint &amp; ink color</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Scrapbook Journal — polaroids, washi tape, ruled paper, handwriting</div>
+<div class="row">
+<div class="ph" style="background:repeating-linear-gradient(#fdfaf2,#fdfaf2 26px,#e7ddc9 27px)">
+  <div style="padding:12px 16px 4px;display:flex;justify-content:space-between;align-items:baseline"><div style="font:600 24px 'Caveat',cursive;color:#26221e">cat diary 🐾</div><div style="font-size:12px;color:#a09070">june '26</div></div>
+  <div style="flex:1;padding:6px 16px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;gap:10px;align-items:flex-start"><div style="background:#fff;padding:6px 6px 16px;box-shadow:2px 3px 6px rgba(0,0,0,.15);transform:rotate(-3deg);position:relative;width:96px"><div style="position:absolute;top:-7px;left:26px;width:44px;height:14px;background:#d99a2b66;transform:rotate(-4deg)"></div><div class="img" style="height:70px">polaroid</div><div style="font:13px 'Caveat',cursive;text-align:center">Mochi</div></div><div style="font:15px/1.3 'Caveat',cursive;color:#4a4438;padding-top:8px">spotted again by the bakery!! that's <b>6 times</b> now. still round. still judging.</div></div>
+    <div style="display:flex;gap:10px;align-items:flex-start;flex-direction:row-reverse"><div style="background:#fff;padding:6px 6px 16px;box-shadow:2px 3px 6px rgba(0,0,0,.15);transform:rotate(2deg);position:relative;width:96px"><div style="position:absolute;top:-7px;left:26px;width:44px;height:14px;background:#7fa88a66;transform:rotate(3deg)"></div><div class="img" style="height:70px">polaroid</div><div style="font:13px 'Caveat',cursive;text-align:center">Beans ★new</div></div><div style="font:15px/1.3 'Caveat',cursive;color:#4a4438;padding-top:8px;text-align:right">NEW CAT!! lives in the parking lot. absolute menace. love her.</div></div>
+  </div>
+  <div style="display:flex;justify-content:space-around;padding:8px 0;background:#fdfaf2;border-top:2px solid #d9cdb2"><b style="font:16px 'Caveat',cursive;color:#d99a2b">✎ diary</b><span style="font:16px 'Caveat',cursive;color:#a09070">cats</span><span style="font:16px 'Caveat',cursive;color:#a09070">map</span></div>
+</div>
+<div class="ph" style="background:repeating-linear-gradient(#fdfaf2,#fdfaf2 26px,#e7ddc9 27px)">
+  <div style="padding:10px 16px;font:15px 'Caveat',cursive;color:#a09070">← back to diary</div>
+  <div style="align-self:center;background:#fff;padding:8px 8px 20px;box-shadow:3px 4px 8px rgba(0,0,0,.18);transform:rotate(-2deg);width:150px;position:relative"><div style="position:absolute;top:-8px;left:44px;width:60px;height:16px;background:#d99a2b66;transform:rotate(-3deg)"></div><div class="img" style="height:110px">polaroid</div><div style="font:16px 'Caveat',cursive;text-align:center">Mochi ♡</div></div>
+  <div style="padding:8px 20px;font:15px/1.35 'Caveat',cursive;color:#4a4438">
+    <div>likes: <span style="background:#ffe08a88;padding:0 4px">warm pastries</span>, chin scratches</div>
+    <div>vibe: <span style="background:#f9c9da88;padding:0 4px">sleepy</span> <span style="background:#bfe6c888;padding:0 4px">round</span></div>
+    <div style="margin-top:4px">lives: behind the bakery <span style="font-size:12px;color:#a09070">(see map ⌕)</span></div>
+    <div style="margin-top:4px;border-top:1px dashed #d9cdb2;padding-top:4px">sightings: <b>⑥</b> — first met 12 apr, last seen tuesday. brought her a treat, she allowed it.</div>
+  </div>
+  <div style="margin:auto 20px 14px;display:flex;gap:8px"><div style="flex:1;border:2px dashed #d99a2b;border-radius:8px;text-align:center;padding:6px;font:15px 'Caveat',cursive;color:#d99a2b">+ new sighting</div><div style="border:2px solid #d9cdb2;border-radius:8px;padding:6px 10px;font:15px 'Caveat',cursive;color:#a09070">edit ✎</div></div>
+</div>
+<div class="ph" style="background:repeating-linear-gradient(#fdfaf2,#fdfaf2 26px,#e7ddc9 27px)">
+  <div style="padding:12px 16px 2px;font:600 22px 'Caveat',cursive">new page: a new cat!</div>
+  <div style="align-self:center;margin-top:6px;background:#fff;padding:8px 8px 18px;box-shadow:2px 3px 6px rgba(0,0,0,.15);transform:rotate(2deg);width:130px"><div style="border:2px dashed #c9bda2;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a09070;font:13px 'Caveat',cursive"><span style="font-size:20px">📷</span>paste photo here</div></div>
+  <div style="padding:10px 22px;display:flex;flex-direction:column;gap:2px;font:15px 'Caveat',cursive;color:#4a4438">
+    <div>name: <span style="color:#b0a68c">___________</span></div>
+    <div>fav food: <span style="color:#b0a68c">___________</span></div>
+    <div>what they do: <span style="color:#b0a68c">___________</span></div>
+    <div>where: <span style="color:#b0a68c">_______</span> <span style="font-size:12px;color:#d99a2b">◉ pin on map</span></div>
+    <div>the story: <span style="color:#b0a68c">___________________</span></div>
+  </div>
+  <div style="margin:auto 22px 14px;background:#d99a2b;border-radius:8px;text-align:center;padding:8px;color:#fff;font:600 17px 'Caveat',cursive;transform:rotate(-.5deg);box-shadow:2px 3px 0 #b5975f">tape it into the diary ✂</div>
+</div>
+</div>
+<div class="note">dex doubles as a chronological diary feed; sightings are journal entries, not stats — coziest, least game-y option</div>
+</div>
+
+<div class="dv-opt" id="1d">
+<div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Cozy Dexgadget — soft handheld-device chrome, one big entry at a time, paw-tally counter</div>
+<div class="row">
+<div class="ph" style="background:#e2574c;border-radius:26px;border-color:#26221e">
+  <div style="display:flex;align-items:center;gap:8px;padding:12px 16px 6px"><div style="width:22px;height:22px;border-radius:50%;background:#bfe0f2;border:2px solid #26221e;box-shadow:inset -3px -3px 0 #7fb2d4"></div><div style="width:8px;height:8px;border-radius:50%;background:#ffe08a;border:1.5px solid #26221e"></div><div style="margin-left:auto;color:#fff;font-weight:700;letter-spacing:1px;font-size:13px">PAWDEX</div></div>
+  <div style="flex:1;margin:4px 12px;background:#fdf8ee;border:2px solid #26221e;border-radius:10px 10px 10px 34px;display:flex;flex-direction:column;overflow:hidden">
+    <div style="display:flex;justify-content:space-between;padding:8px 12px 0;font-size:11px;color:#8a7f68"><span>ENTRY 003 / 014</span><span>◂ ▸</span></div>
+    <div class="img" style="margin:6px 14px;height:110px;border:2px solid #26221e;border-radius:8px">cat photo</div>
+    <div style="padding:0 14px"><b style="font-size:17px">MOCHI</b><span style="font-size:11px;color:#8a7f68"> · the bakery windowsill</span></div>
+    <div style="display:flex;gap:5px;padding:5px 14px"><span style="font-size:10px;background:#ffe08a;border:1.5px solid #26221e;border-radius:4px;padding:1px 6px">SLEEPY</span><span style="font-size:10px;background:#bfe6c8;border:1.5px solid #26221e;border-radius:4px;padding:1px 6px">ROUND</span></div>
+    <div style="margin:6px 14px;font-size:12px;line-height:1.35;color:#4a4438;border-top:1px dashed #c9bda2;padding-top:5px">sleeps on warm pastries; accepts exactly one chin scratch per day.</div>
+    <div style="margin:auto 14px 10px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#8a7f68">SPOTTED</div><div style="font-size:14px;letter-spacing:2px">🐾🐾🐾🐾🐾🐾</div></div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 18px 14px"><div style="width:44px;height:44px;background:#26221e;border-radius:50%;position:relative"><div style="position:absolute;inset:16px 6px;background:#e2574c"></div><div style="position:absolute;inset:6px 16px;background:#e2574c"></div></div><div style="display:flex;gap:8px"><div style="width:34px;height:14px;background:#ffe08a;border:2px solid #26221e;border-radius:7px"></div><div style="width:34px;height:14px;background:#bfe0f2;border:2px solid #26221e;border-radius:7px"></div></div><div style="width:40px;height:40px;background:#fdf8ee;border:2px solid #26221e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px">+</div></div>
+</div>
+<div class="ph" style="background:#e2574c;border-radius:26px;border-color:#26221e">
+  <div style="display:flex;align-items:center;gap:8px;padding:12px 16px 6px"><div style="width:22px;height:22px;border-radius:50%;background:#bfe0f2;border:2px solid #26221e;box-shadow:inset -3px -3px 0 #7fb2d4"></div><div style="margin-left:auto;color:#fff;font-weight:700;letter-spacing:1px;font-size:13px">ALL ENTRIES</div></div>
+  <div style="flex:1;margin:4px 12px;background:#fdf8ee;border:2px solid #26221e;border-radius:10px 10px 10px 34px;padding:10px;display:flex;flex-direction:column;gap:7px;overflow:hidden">
+    <div style="display:flex;gap:8px;align-items:center;background:#fff;border:2px solid #26221e;border-radius:8px;padding:6px"><b style="font-size:11px;color:#8a7f68">001</b><div class="img" style="width:34px;height:34px;border-radius:6px">im</div><b style="font-size:13px">BEANS</b><span style="margin-left:auto;font-size:11px">🐾×2</span></div>
+    <div style="display:flex;gap:8px;align-items:center;background:#ffe08a;border:2px solid #26221e;border-radius:8px;padding:6px"><b style="font-size:11px;color:#8a7f68">003</b><div class="img" style="width:34px;height:34px;border-radius:6px">im</div><b style="font-size:13px">MOCHI ◂</b><span style="margin-left:auto;font-size:11px">🐾×6</span></div>
+    <div style="display:flex;gap:8px;align-items:center;background:#fff;border:2px solid #26221e;border-radius:8px;padding:6px"><b style="font-size:11px;color:#8a7f68">004</b><div class="img" style="width:34px;height:34px;border-radius:6px">im</div><b style="font-size:13px">SIR LOIN</b><span style="margin-left:auto;font-size:11px">🐾×9</span></div>
+    <div style="display:flex;gap:8px;align-items:center;background:#fff;border:2px dashed #c9bda2;border-radius:8px;padding:6px;color:#a09070"><b style="font-size:11px">005</b><div style="width:34px;height:34px;border:1.5px dashed #c9bda2;border-radius:6px"></div><span style="font-size:12px">not yet spotted…</span></div>
+    <div style="margin-top:auto;font-size:11px;color:#8a7f68;text-align:center">14 of ??? neighbourhood cats found</div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:10px;padding:8px 0 14px"><div style="width:70px;height:16px;background:#26221e;border-radius:8px"></div><div style="width:16px;height:16px;background:#26221e;border-radius:50%"></div></div>
+</div>
+<div class="ph" style="background:#e2574c;border-radius:26px;border-color:#26221e">
+  <div style="display:flex;align-items:center;gap:8px;padding:12px 16px 6px"><div style="width:22px;height:22px;border-radius:50%;background:#bfe0f2;border:2px solid #26221e"></div><div style="margin-left:auto;color:#fff;font-weight:700;letter-spacing:1px;font-size:13px">NEW ENTRY</div></div>
+  <div style="flex:1;margin:4px 12px;background:#fdf8ee;border:2px solid #26221e;border-radius:10px 10px 10px 34px;padding:12px;display:flex;flex-direction:column;gap:9px">
+    <div class="img" style="height:90px;border:2px dashed #26221e;border-radius:8px">SNAP OR DROP PHOTO</div>
+    <div style="border:2px solid #26221e;border-radius:8px;padding:6px 9px;font-size:12px;color:#a09070;background:#fff">NAME…</div>
+    <div style="display:flex;gap:5px;flex-wrap:wrap"><span style="font-size:10px;background:#ffe08a;border:1.5px solid #26221e;border-radius:4px;padding:2px 6px">SLEEPY</span><span style="font-size:10px;border:1.5px dashed #8a7f68;border-radius:4px;padding:2px 6px;color:#8a7f68">CHAOTIC</span><span style="font-size:10px;border:1.5px dashed #8a7f68;border-radius:4px;padding:2px 6px;color:#8a7f68">FANCY</span><span style="font-size:10px;border:1.5px dashed #8a7f68;border-radius:4px;padding:2px 6px;color:#8a7f68">+</span></div>
+    <div style="border:2px solid #26221e;border-radius:8px;padding:6px 9px;font-size:12px;color:#a09070;background:#fff;flex:1">NOTES…</div>
+    <div style="display:flex;gap:8px;font-size:12px;align-items:center;color:#4a4438"><span>◉ WHERE:</span><span style="border-bottom:1.5px solid #26221e;flex:1;color:#a09070">behind the bakery</span></div>
+    <div style="background:#26221e;color:#ffe08a;text-align:center;border-radius:8px;padding:8px;font-weight:700;font-size:13px;letter-spacing:1px">REGISTER CAT ▸</div>
+  </div>
+  <div style="display:flex;justify-content:center;padding:8px 0 14px"><div style="width:70px;height:16px;background:#26221e;border-radius:8px"></div></div>
+</div>
+<div class="note">the whole app lives “inside” a soft toy-like device; entry numbers + “not yet spotted” slots give gentle collection feel without stats; themes = device shell colors</div>
+</div>
+
+<div class="dv-opt" id="1e">
+<div class="dv-olabel"><a class="dv-oid" href="#1e">1e</a>Cat Passport — round stamp collection, each cat is a stamped visa page</div>
+<div class="row">
+<div class="ph" style="background:#3d4470">
+  <div style="text-align:center;padding:14px 0 2px;color:#e8c977;font-size:11px;letter-spacing:3px">· CAT PASSPORT ·</div>
+  <div style="text-align:center;color:#fff;font-size:16px;font-weight:700">Stamp Collection</div>
+  <div style="text-align:center;color:#9aa2cc;font-size:11px;margin-bottom:6px">14 / 24 stamps this season</div>
+  <div style="flex:1;margin:4px 14px;background:#f4f0e4;border-radius:12px;padding:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-content:start">
+    <div style="text-align:center"><div style="width:56px;height:56px;border:2.5px solid #5560a4;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;transform:rotate(-8deg)"><div class="img" style="width:42px;height:42px;border-radius:50%">🐱</div></div><div style="font-size:10px;margin-top:3px;color:#4a4438">Mochi</div></div>
+    <div style="text-align:center"><div style="width:56px;height:56px;border:2.5px solid #a45560;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;transform:rotate(5deg)"><div class="img" style="width:42px;height:42px;border-radius:50%">🐱</div></div><div style="font-size:10px;margin-top:3px;color:#4a4438">Beans</div></div>
+    <div style="text-align:center"><div style="width:56px;height:56px;border:2.5px solid #55a48a;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;transform:rotate(-3deg)"><div class="img" style="width:42px;height:42px;border-radius:50%">🐱</div></div><div style="font-size:10px;margin-top:3px;color:#4a4438">Sir Loin</div></div>
+    <div style="text-align:center"><div style="width:56px;height:56px;border:2px dashed #b9b19a;border-radius:50%;margin:0 auto"></div><div style="font-size:10px;margin-top:3px;color:#b9b19a">?</div></div>
+    <div style="text-align:center"><div style="width:56px;height:56px;border:2px dashed #b9b19a;border-radius:50%;margin:0 auto"></div><div style="font-size:10px;margin-top:3px;color:#b9b19a">?</div></div>
+    <div style="text-align:center"><div style="width:56px;height:56px;border:2.5px solid #c98a3d;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;transform:rotate(10deg)"><div class="img" style="width:42px;height:42px;border-radius:50%">🐱</div></div><div style="font-size:10px;margin-top:3px;color:#4a4438">Toast</div></div>
+  </div>
+  <div style="display:flex;justify-content:space-around;padding:10px 0;color:#9aa2cc;font-size:12px"><b style="color:#e8c977">◉ stamps</b><span>map</span><span>+ new stamp</span><span>themes</span></div>
+</div>
+<div class="ph" style="background:#3d4470">
+  <div style="padding:10px 14px;color:#9aa2cc;font-size:12px">← stamps</div>
+  <div style="flex:1;margin:0 14px 14px;background:#f4f0e4;border-radius:12px;padding:14px;position:relative;overflow:hidden">
+    <div style="display:flex;gap:12px;align-items:flex-start"><div style="width:82px;height:82px;border:3px solid #5560a4;border-radius:50%;display:flex;align-items:center;justify-content:center;transform:rotate(-6deg)"><div class="img" style="width:64px;height:64px;border-radius:50%">photo</div></div><div style="padding-top:6px"><div style="font-size:18px;font-weight:700;color:#26221e">Mochi</div><div style="font-size:11px;color:#8a7f68">visa no. 003 · issued 12 apr 2026</div><div style="display:flex;gap:4px;margin-top:5px"><span style="font-size:10px;color:#5560a4;border:1.5px solid #5560a4;border-radius:99px;padding:1px 7px">sleepy</span><span style="font-size:10px;color:#5560a4;border:1.5px solid #5560a4;border-radius:99px;padding:1px 7px">round</span></div></div></div>
+    <div style="margin-top:12px;font-size:12px;line-height:1.45;color:#4a4438;border-top:1px dashed #c9bda2;padding-top:8px"><b style="font-size:10px;letter-spacing:2px;color:#8a7f68">REMARKS</b><br>Sleeps on warm pastries. Judges passersby. One chin scratch permitted daily.</div>
+    <div style="margin-top:10px"><b style="font-size:10px;letter-spacing:2px;color:#8a7f68">ENTRY STAMPS</b><div style="display:flex;gap:6px;margin-top:5px;flex-wrap:wrap"><span style="font-size:10px;border:1.5px solid #a45560;color:#a45560;border-radius:4px;padding:2px 6px;transform:rotate(-4deg)">12 APR · bakery</span><span style="font-size:10px;border:1.5px solid #5560a4;color:#5560a4;border-radius:4px;padding:2px 6px;transform:rotate(3deg)">03 MAY · bakery</span><span style="font-size:10px;border:1.5px solid #55a48a;color:#55a48a;border-radius:4px;padding:2px 6px;transform:rotate(-2deg)">02 JUN · park!</span></div></div>
+    <div class="img" style="margin-top:10px;height:52px;border-radius:8px">territory map</div>
+    <div style="position:absolute;right:-14px;bottom:38px;width:90px;height:90px;border:3px solid #a4556033;border-radius:50%;display:flex;align-items:center;justify-content:center;transform:rotate(-14deg);color:#a4556044;font-size:11px;font-weight:700;letter-spacing:2px">REGULAR</div>
+  </div>
+</div>
+<div class="ph" style="background:#3d4470">
+  <div style="text-align:center;padding:12px 0 4px;color:#fff;font-size:15px;font-weight:700">Issue a new visa</div>
+  <div style="flex:1;margin:4px 14px 14px;background:#f4f0e4;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px">
+    <div style="align-self:center;width:96px;height:96px;border:2.5px dashed #5560a4;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5560a4;font-size:11px"><span style="font-size:20px">📷</span>photo</div>
+    <div style="font-size:12px"><span style="font-size:9px;letter-spacing:2px;color:#8a7f68">NAME</span><div style="background:#fff;border:1.5px solid #c9bda2;border-radius:6px;padding:6px 9px;color:#b0a68c">Sir Whiskers…</div></div>
+    <div style="font-size:12px"><span style="font-size:9px;letter-spacing:2px;color:#8a7f68">TRAITS</span><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:3px"><span style="font-size:10px;background:#5560a4;color:#fff;border-radius:99px;padding:2px 8px">sleepy ✓</span><span style="font-size:10px;border:1.5px solid #b0a68c;color:#8a7f68;border-radius:99px;padding:2px 8px">chaotic</span><span style="font-size:10px;border:1.5px solid #b0a68c;color:#8a7f68;border-radius:99px;padding:2px 8px">fancy</span></div></div>
+    <div style="font-size:12px"><span style="font-size:9px;letter-spacing:2px;color:#8a7f68">FIRST SPOTTED AT</span><div style="background:#fff;border:1.5px solid #c9bda2;border-radius:6px;padding:6px 9px;display:flex;justify-content:space-between"><span style="color:#b0a68c">behind the bakery…</span><span style="color:#5560a4">◉</span></div></div>
+    <div style="font-size:12px;flex:1"><span style="font-size:9px;letter-spacing:2px;color:#8a7f68">REMARKS</span><div style="background:#fff;border:1.5px solid #c9bda2;border-radius:6px;padding:6px 9px;color:#b0a68c;height:34px">the full story…</div></div>
+    <div style="background:#5560a4;color:#fff;text-align:center;border-radius:8px;padding:9px;font-weight:700;font-size:13px;transform:rotate(-.5deg)">STAMP IT ✦</div>
+  </div>
+</div>
+<div class="note">each sighting = a dated ink stamp; re-spotting a cat “re-stamps the visa” — satisfying without being a game; themes = passport cover colors</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: “build out <a class="dv-oid" href="#1b">1b</a> as a full hi-fi app” · “mix <a class="dv-oid" href="#1a">1a</a>’s sticker cards with <a class="dv-oid" href="#1c">1c</a>’s diary feed” · “show <a class="dv-oid" href="#1e">1e</a>’s map screen”</p>
+</section>
+</x-dc>
+</body>
+</html>
